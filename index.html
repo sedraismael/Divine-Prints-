@@ -3,22 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divine Prints | بصمات إلهية</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Fake Fingerprint Analyzer</title>
+    <style>
+        /* Updated CSS */
+        body {
+            background-color: #ffc1cc; /* Light pink starter background */
+            font-family: 'Times New Roman', Times, serif;
+            color: #333; /* Default text color */
+            text-align: center;
+        }
+
+        .title {
+            color: #900d09; /* Loops and whorls color */
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+
+        span {
+            color: #FFF4F0; /* Ridges color */
+        }
+
+        .description {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[type="file"] {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #0047ab; /* Arches color (Royal Blue) */
+            color: white; /* White text for buttons */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Times New Roman', Times, serif; /* Consistent font */
+        }
+
+        button:hover {
+            background-color: #002e6d; /* Darker shade of Royal Blue for hover effect */
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #900d09; /* Match loops/whorls color */
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #888; /* Neutral footer text color */
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1 class="title">Divine Prints | <span>بصمات إلهية</span></h1>
-    <p class="description">
-        بصمات إلهية هو تطبيق ويب تفاعلي يتيح للمستخدمين تحميل صورة لبصمتهم، والحصول على آية قرآنية مخصصة، ومعلومة علمية، وتجربة بصرية جميلة، بناءً على النمط الفريد لبصمتهم: الأقواس، أو الحلقات، أو الدوَّامات، أو الحواف.
-    </p>
+    <h1 class="title">Fake Fingerprint Analyzer</h1>
+    <p class="description">Upload your fingerprint image below to analyze its pattern and get personalized insights!</p>
     <input type="file" id="fingerprintInput" accept="image/*">
     <button onclick="analyzeFingerprint()">Analyze Fingerprint</button>
+    
     <div id="result"></div>
 
     <footer>
-        <p>Made with 💖 by Sedra, Taleen, Mona, and Yara</p>
+        <p>&copy; 2025 Fake Fingerprint Analyzer. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        /* Updated JavaScript */
+        const fingerprintData = {
+            arches: {
+                backgroundColor: 'royalblue',
+                fontColor: 'white',
+                scientificFact: 'Arches are the simplest and the least common fingerprint pattern, observed in about 5% of the population.',
+                quranVerse: {
+                    english: 'Indeed, We have created man in the best of stature.',
+                    arabic: 'إِنَّا خَلَقْنَا الإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ'
+                },
+                explanation: {
+                    english: 'Arches symbolize the simple and perfect design of Allah’s creation. Just as Allah created the human form in the best of stature, the arch represents the simplicity and balance found in the natural world.',
+                    arabic: 'الأقواس تمثل التصميم البسيط والمثالي لخلق الله. كما خلق الله الشكل البشري في أفضل تقويم، تمثل القوس البساطة والتوازن الذي نجده في العالم الطبيعي.'
+                }
+            },
+            loops: {
+                backgroundColor: 'forestgreen',
+                fontColor: 'white',
+                scientificFact: 'Loops are the most common fingerprint pattern, appearing in 60-70% of the population.',
+                quranVerse: {
+                    english: 'And We have certainly created man and We know what his soul whispers to him.',
+                    arabic: 'وَلَقَدْ خَلَقْنَا الإِنْسَانَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِ نَفْسُهُ.'
+                },
+                explanation: {
+                    english: 'Loops reflect the continuous flow of life and the interconnectedness of all things. The Quran verse emphasizes how Allah is closer to us than we can ever imagine, just as the loops connect in continuous patterns.',
+                    arabic: 'الحلقات تعكس تدفق الحياة المستمر وترابط كل الأشياء. يبرز الآية القرآنية كيف أن الله أقرب إلينا مما نتخيل، تمامًا كما تتصل الحلقات في أنماط مستمرة.'
+                }
+            },
+            whorls: {
+                backgroundColor: 'scarlet',
+                fontColor: 'white',
+                scientificFact: 'Whorls are characterized by circular or spiral patterns and are less common than loops and arches.',
+                quranVerse: {
+                    english: 'He is the Creator of the heavens and the earth; He created all things in the best way.',
+                    arabic: 'هُوَ خَالِقُ السَّمَاوَاتِ وَالْأَرْضِ، خَلَقَ كُلَّ شَيْءٍ بِأَحْسَنِ صُورَةٍ'
+                },
+                explanation: {
+                    english: 'Whorls represent complexity and intricacy. Just as Allah has created everything in the best possible way, the whorl design showcases the complexity and perfection inherent in His creation.',
+                    arabic: 'الدوامات تمثل التعقيد والدقة. كما خلق الله كل شيء بأفضل صورة، يظهر تصميم الدوامة التعقيد والكمال في خلقه.'
+                }
+            },
+            ridges: {
+                backgroundColor: 'yellow',
+                fontColor: 'black',
+                scientificFact: 'Ridges are the raised lines that make up the fingerprint pattern. They are essential for grip and tactile sensitivity.',
+                quranVerse: {
+                    english: 'And He found you lost and guided [you].',
+                    arabic: 'وَوَجَدَكَ ضَالاًّ فَهَادَ'
+                },
+                explanation: {
+                    english: 'The ridges in fingerprints allow us to grip objects and navigate the world. Similarly, Allah’s guidance is what allows us to hold on to the truth and navigate life, much like the ridges provide a firm grip.',
+                    arabic: 'الحواف في بصمات الأصابع تساعدنا في الإمساك بالأشياء والملاحة في العالم. بالمثل، توجيه الله هو ما يسمح لنا بالتمسك بالحق والملاحة في الحياة، تمامًا كما توفر الحواف قبضة قوية.'
+                }
+            }
+        };
+
+        function analyzeFingerprint() {
+            const fingerprintInput = document.getElementById("fingerprintInput");
+            const resultDiv = document.getElementById("result");
+
+            if (!fingerprintInput.files[0]) {
+                resultDiv.innerHTML = "<p>Please upload a fingerprint image to analyze.</p>";
+                return;
+            }
+
+            // Simulate analysis by randomly selecting a pattern
+            const patterns = Object.keys(fingerprintData);
+            const selectedPattern = patterns[Math.floor(Math.random() * patterns.length)];
+            const data = fingerprintData[selectedPattern];
+
+            // Update background color
+            document.body.style.backgroundColor = data.backgroundColor;
+            document.body.style.color = data.fontColor;
+
+            // Display results
+            resultDiv.innerHTML = `
+                <h2>Detected Pattern: ${selectedPattern.charAt(0).toUpperCase() + selectedPattern.slice(1)}</h2>
+                <p><strong>Scientific Fact:</strong> ${data.scientificFact}</p>
+                <p><strong>Quran Verse:</strong> ${data.quranVerse.english}</p>
+                <p><strong>الآية القرآنية:</strong> ${data.quranVerse.arabic}</p>
+                <p><strong>Explanation:</strong> ${data.explanation.english}</p>
+                <p><strong>التفسير:</strong> ${data.explanation.arabic}</p>
+            `;
+        }
+    </script>
 </body>
 </html>
