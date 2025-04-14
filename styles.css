@@ -1,61 +1,102 @@
-body {
-    background-color: #ffc1cc; /* Light pink background */
-    font-family: 'Times New Roman', Times, serif;
-    color: #333;
-    text-align: center;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fingerprint Patterns</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif; /* Set font to Times New Roman */
+            text-align: center;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            padding: 20px;
+            background-color: lightpink; /* Default starter background color */
+            color: black; /* Default font color */
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fingerprint Patterns</h1>
+    <p>Click a button to see information and change the background!</p>
+    <button onclick="changeBackground('arches')">Arches</button>
+    <button onclick="changeBackground('loops')">Loops</button>
+    <button onclick="changeBackground('whorls')">Whorls</button>
+    <button onclick="changeBackground('ridges')">Ridges</button>
 
-.title {
-    color: #900d09; /* loops and whorls color */
-    font-size: 2.5rem;
-    margin-top: 20px;
-}
+    <div id="info" style="margin-top: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+        <h2>Information</h2>
+        <p>Select a fingerprint pattern to learn more!</p>
+    </div>
 
-span {
-    color: #FFF4F0; /* ridges color */
-}
+    <script>
+        const fingerprintPatterns = {
+            arches: {
+                backgroundColor: 'royalblue',
+                fontColor: 'white',
+                scientificFact: 'Arches are the simplest and the least common fingerprint pattern, observed in about 5% of the population.',
+                arabicScientificFact: 'القوس هو أبسط وأندر نمط لبصمات الأصابع، يوجد في حوالي 5٪ من السكان.',
+                quranVerse: 'Indeed, We have created man in the best of stature.',
+                arabicQuranVerse: 'لَقَدْ خَلَقْنَا الإِنْسَانَ فِي أَحْسَنِ تَقْوِيمٍ.',
+                explanation: 'Arches symbolize the simple and perfect design of Allah’s creation.',
+                arabicExplanation: 'القوس يرمز إلى التصميم البسيط والمتقن لخلق الله.'
+            },
+            loops: {
+                backgroundColor: 'forestgreen',
+                fontColor: 'white',
+                scientificFact: 'Loops are the most common fingerprint pattern, appearing in 60-70% of the population.',
+                arabicScientificFact: 'الحلقات هي النمط الأكثر شيوعاً لبصمات الأصابع، توجد في 60-70٪ من السكان.',
+                quranVerse: 'And We have certainly created man and We know what his soul whispers to him.',
+                arabicQuranVerse: 'وَلَقَدْ خَلَقْنَا الإِنْسَانَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِ نَفْسُهُ.',
+                explanation: 'Loops reflect the continuous flow of life and interconnectedness of all things.',
+                arabicExplanation: 'الحلقات تعكس التدفق المستمر للحياة وترابط كل الأشياء.'
+            },
+            whorls: {
+                backgroundColor: 'scarlet',
+                fontColor: 'white',
+                scientificFact: 'Whorls are characterized by circular or spiral patterns found in 25-35% of the population.',
+                arabicScientificFact: 'الدوامات تتميز بأنماط دائرية أو لولبية وتوجد في حوالي 25-35٪ من السكان.',
+                quranVerse: 'He is the Creator of the heavens and the earth.',
+                arabicQuranVerse: 'فَاطِرُ السَّمَاوَاتِ وَالْأَرْضِ.',
+                explanation: 'Whorls represent the complexity and intricacy of Allah’s creation.',
+                arabicExplanation: 'الدوامات تمثل التعقيد والدقة في خلق الله.'
+            },
+            ridges: {
+                backgroundColor: 'yellow',
+                fontColor: 'black',
+                scientificFact: 'Ridges are the raised lines on fingertips that create various fingerprint patterns.',
+                arabicScientificFact: 'الأخاديد هي الخطوط المرتفعة على أطراف الأصابع التي تشكل أنماط بصمات الأصابع.',
+                quranVerse: 'And He found you lost and guided [you].',
+                arabicQuranVerse: 'وَوَجَدَكَ ضَالًّا فَهَدَى.',
+                explanation: 'Ridges serve as a reminder of Allah’s wisdom.',
+                arabicExplanation: 'الأخاديد تذكرنا بحكمة الله.'
+            }
+        };
 
-.description {
-    font-size: 1.2rem;
-    margin: 20px 0;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        function changeBackground(pattern) {
+            const selectedPattern = fingerprintPatterns[pattern];
+            document.body.style.backgroundColor = selectedPattern.backgroundColor;
+            document.body.style.color = selectedPattern.fontColor;
 
-input[type="file"] {
-    margin: 20px 0;
-}
-
-button {
-    background-color: #0047ab; /* arches color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-button:hover {
-    background-color: #002e6d; /* darker shade of arches for hover */
-}
-
-#result {
-    margin-top: 30px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #900d09; /* match loops/whorls */
-}
-
-footer {
-    margin-top: 50px;
-    font-size: 1rem;
-    color: #888;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
+            const infoDiv = document.getElementById('info');
+            infoDiv.innerHTML = `
+                <h2>${pattern.charAt(0).toUpperCase() + pattern.slice(1)}</h2>
+                <p><strong>Scientific Fact:</strong> ${selectedPattern.scientificFact}</p>
+                <p><strong>Arabic Scientific Fact:</strong> ${selectedPattern.arabicScientificFact}</p>
+                <p><strong>Quran Verse:</strong> "${selectedPattern.quranVerse}"</p>
+                <p><strong>Arabic Quran Verse:</strong> "${selectedPattern.arabicQuranVerse}"</p>
+                <p><strong>Explanation:</strong> ${selectedPattern.explanation}</p>
+                <p><strong>Arabic Explanation:</strong> ${selectedPattern.arabicExplanation}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
