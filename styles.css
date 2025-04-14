@@ -1,0 +1,61 @@
+body {
+    background-color: #ffc1cc; /* Light pink background */
+    font-family: 'Times New Roman', Times, serif;
+    color: #333;
+    text-align: center;
+}
+
+.title {
+    color: #900d09; /* loops and whorls color */
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+span {
+    color: #FFF4F0; /* ridges color */
+}
+
+.description {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="file"] {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #0047ab; /* arches color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button:hover {
+    background-color: #002e6d; /* darker shade of arches for hover */
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #900d09; /* match loops/whorls */
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 1rem;
+    color: #888;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
